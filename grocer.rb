@@ -3,14 +3,14 @@ def consolidate_cart(cart)
   cart.each do |hash_array|
     hash_array.each do |item, data|
       if cart_update[item]
-        new_cart[item][:count] += 1
+        cart_update[item][:count] += 1
       else
-        new_cart[item] = data
-        new_cart[item][:count] = 1
+        cart_update[item] = data
+        cart_update[item][:count] = 1
       end
     end
   end
-  new_cart
+  cart_update
 end
 
 def apply_coupons(cart, coupons)
