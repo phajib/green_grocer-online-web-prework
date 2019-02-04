@@ -53,14 +53,13 @@ def checkout(cart, coupons)
   cart_update = consolidate_cart(cart)
   apply_coupons(cart_update, coupons)
   apply_clearance(cart_update)
-  total = 0
+  total_cost = 0
 
   cart_update.each do |name, hash|
-    total += (hash[:price] * hash[:count])
+    total_cost += (hash[:price] * hash[:count])
   end
-  if total >= 100
-    total *= 0.9
-  else
-    total
+  if total_cost >= 100
+    total_cost *= 0.9
   end
+  total_cost
 end
