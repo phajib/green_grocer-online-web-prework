@@ -41,13 +41,19 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  cart_update = cart
-  cart.each do |name, hash|
-    if hash[:clearance]
-      cart_update[name][:price] = (cart[name][:price] * 0.8).round(2)
+#  cart_update = cart
+#  cart.each do |name, hash|
+#    if hash[:clearance]
+#      cart_update[name][:price] = (cart[name][:price] * 0.8).round(2)
+#    end
+#  end
+#  cart_update
+cart.each do |item, price_hash|
+    if price_hash[:clearance] == true
+      price_hash[:price] = (price_hash[:price] * 0.8).round(2)
     end
   end
-  cart_update
+  cart  
 end
 
 def checkout(cart, coupons)
