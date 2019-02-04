@@ -14,7 +14,7 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  return cart if coupons == []
+  #return cart if coupons == []
   cart_update = cart
   coupons.each do |coupon|
     name = coupon[:item]
