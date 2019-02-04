@@ -21,7 +21,7 @@ def apply_coupons(cart, coupons)
     name = coupon[:item] #avocado, cheese,...
     no_coupons = coupon[:num]
   #if the cart has the same item in coupon and has larger amount than in coupon
-    if cart[name][:count] && cart.include?(name) >= no_coupons
+    if  cart.include?(name) && cart[name][:count] >= no_coupons
      #remove number of the new_cart's count
      cart_update[name][:count] -= no_coupons
      #increase the count when there is more items than the coupon allows
